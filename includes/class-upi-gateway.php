@@ -117,7 +117,7 @@ class WC_Gateway_Upi extends WC_Payment_Gateway {
 				'title'       => __( 'Instructions', 'cfupi' ),
 				'type'        => 'textarea',
 				'description' => __( 'Instructions that will be added to the thank you page.', 'cfupi' ),
-				'default'     => __( 'If UPI payment is successful, your order will be processed soon.', 'cfupi' ),
+				'default'     => __( '<div class="upi-instructions woocommerce-notice">If UPI payment is successful, your order will be processed soon.</div>', 'cfupi' ),
 				'desc_tip'    => true,
 			),
 			'upi_id'       => array(
