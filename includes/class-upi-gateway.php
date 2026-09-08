@@ -151,23 +151,8 @@ class WC_Gateway_Upi extends WC_Payment_Gateway {
 	public function process_payment( $order_id ) {
 		$order = wc_get_order( $order_id );
 
-		// if ( $order->get_total() > 0 ) {
-		// 	/**
-		// 	 * Filter the order status for UPI orders.
-		// 	 *
-		// 	 * @since 2.6.0
-		// 	 *
-		// 	 * @param string $order_status Default status for UPI orders.
-		// 	 */
-		// 	$process_payment_status = apply_filters( 'woocommerce_upi_process_payment_order_status', $order->has_downloadable_item() ? OrderStatus::ON_HOLD : OrderStatus::PROCESSING, $order );
-		// 	// Mark as processing or on-hold (payment won't be taken until delivery).
-		// 	$order->update_status( $process_payment_status, __( 'Payment to be made upon delivery.', 'cfupi' ) );
-		// } else {
-		// 	$order->payment_complete();
-		// }
-
-		// // Remove cart.
-		// WC()->cart->empty_cart();
+		// Mark order as pending awaiting UPI payment
+		$order->update_status( 'pending', __( 'Awaiting UPI payment from customer.', 'cfupi' ) );
 
 		// Return thankyou redirect.
 		return array(
