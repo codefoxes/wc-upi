@@ -139,6 +139,13 @@ class WC_Gateway_Upi extends WC_Payment_Gateway {
 				'description' => __( 'Number of seconds QR Code window to be open before redirecting to Thank you page', 'cfupi' ),
 				'desc_tip'    => true,
 			),
+			'webhook_key'  => array(
+				'title'       => __( 'Webhook Secret Key', 'cfupi' ),
+				'type'        => 'password',
+				'description' => __( 'Secret key to authenticate incoming webhook requests (sent via X-Webhook-Key header). Alternatively, define UPI_WEBHOOK_KEY constant in wp-config.php.', 'cfupi' ),
+				'default'     => '',
+				'desc_tip'    => true,
+			),
 		);
 	}
 
